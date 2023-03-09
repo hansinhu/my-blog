@@ -14,10 +14,17 @@
   "author": "hansinhu",
   "license": "ISC",
   "private": true,
-  "workspaces": [
-    "client",
-    "server"
-  ],
+  "workspaces": {
+    "packages": [
+      "client",
+      "server"
+    ],
+    "nohoist": [
+      "**/egg",
+      "**/egg-*",
+      "**/egg-*/**"
+    ]
+  },
   "bugs": {
     "url": "https://github.com/hansinhu/my-blog/issues"
   },

@@ -9,7 +9,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-server",
     "stop": "egg-scripts stop --title=egg-server-server",
-    "dev": "egg-bin dev",
+    "dev": "egg-bin dev --base=../",
     "test-local": "egg-bin test -p",
     "test": "npm run lint -- --fix && npm run test-local",
     "cov": "egg-bin cov -p",
@@ -19,7 +19,7 @@
     "clean": "tsc -b --clean"
   },
   "dependencies": {
-    "@eggjs/tegg": "^3.5.2",
+    "@eggjs/tegg": "^3.6.3",
     "@eggjs/tegg-aop-plugin": "^3.5.2",
     "@eggjs/tegg-config": "^3.2.3",
     "@eggjs/tegg-controller-plugin": "^3.5.2",
@@ -31,9 +31,9 @@
     "egg-tracer": "^2.0.0"
   },
   "devDependencies": {
+    "@eggjs/tsconfig": "1",
     "@types/mocha": "10",
     "@types/node": "18",
-    "@eggjs/tsconfig": "1",
     "egg-bin": "6",
     "egg-mock": "5",
     "eslint": "8",

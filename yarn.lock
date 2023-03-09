@@ -1521,7 +1521,7 @@
     "@eggjs/tegg-runtime" "^3.6.3"
     "@eggjs/tegg-schedule-decorator" "^3.5.0"
 
-"@eggjs/tegg@^3.5.2", "@eggjs/tegg@^3.6.3":
+"@eggjs/tegg@^3.6.3":
   version "3.6.3"
   resolved "https://registry.npmmirror.com/@eggjs/tegg/-/tegg-3.6.3.tgz#af6eb395b6a1a807122e085d2ff9f71f8f000dec"
   integrity sha512-CGKOSgNHNy7AT1juVxncWjrgeFsIgtFSSQJJBS7X/egcJt5lE/aNsYvBttAMSListuDerHY1T4QCL2y6uJaFDw==
