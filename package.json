@@ -1,0 +1,25 @@
+{
+  "name": "my-blog",
+  "version": "1.0.0",
+  "description": "从今天起做一个幸福的人",
+  "main": "index.js",
+  "scripts": {
+    "dev:client": "yarn workspace client run start",
+    "dev:server": "yarn workspace server run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hansinhu/my-blog.git"
+  },
+  "author": "hansinhu",
+  "license": "ISC",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "bugs": {
+    "url": "https://github.com/hansinhu/my-blog/issues"
+  },
+  "homepage": "https://github.com/hansinhu/my-blog#readme"
+}
