@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './index.css'
+import '@/styles/index.css'
 import 'antd/dist/reset.css';
 
 const root = createRoot(

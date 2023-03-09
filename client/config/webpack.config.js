@@ -44,6 +44,9 @@ const babelRuntimeRegenerator = require.resolve('@babel/runtime/regenerator', {
   paths: [babelRuntimeEntry],
 });
 
+// TS paths transform to webpack alias
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
 const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
@@ -334,6 +337,7 @@ module.exports = function (webpackEnv) {
           babelRuntimeEntryHelpers,
           babelRuntimeRegenerator,
         ]),
+        new TsconfigPathsPlugin({/* options: see below */})
       ],
     },
     module: {

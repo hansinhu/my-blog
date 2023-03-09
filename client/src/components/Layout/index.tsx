@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import { ConfigProvider, Layout, Menu,Alert, theme } from 'antd';
 import { StyleProvider } from '@ant-design/cssinjs';
 import 'antd/dist/reset.css';
-import Icon from '../Icon'
+import Icon from '@/components/Icon'
 // import { useLocation } from 'react-router-dom'
-import { getName } from '../../utils'
 import styles from './index.module.scss';
 
 const { defaultAlgorithm, darkAlgorithm } = theme;
@@ -51,7 +50,7 @@ function DefaultLayout ({ children }: Props){
       setShowAlert(true)
     }
 
-    setMenuKey(getName())
+    setMenuKey('')
   }, [])
 
   useEffect(() => {

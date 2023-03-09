@@ -4,7 +4,7 @@
   "description": "从今天起做一个幸福的人",
   "main": "index.js",
   "scripts": {
-    "dev:client": "yarn workspace client run start",
+    "dev:client": "yarn workspace client run dev",
     "dev:server": "yarn workspace server run watch-server"
   },
   "repository": {

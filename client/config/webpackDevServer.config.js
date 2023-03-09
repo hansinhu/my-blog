@@ -14,6 +14,16 @@ const sockPath = process.env.WDS_SOCKET_PATH; // default: '/ws'
 const sockPort = process.env.WDS_SOCKET_PORT;
 
 module.exports = function (proxy, allowedHost) {
+  proxy = {
+    ...proxy,
+    // '/api': {
+    //   target: 'http://localhost:3000',
+    // }
+    '/api': {
+      target: 'https://xxx.xx.com',
+      changeOrigin: true,
+    }
+  }
   const disableFirewall =
     !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true';
   return {

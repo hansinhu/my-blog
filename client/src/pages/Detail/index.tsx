@@ -1,9 +1,14 @@
-import React from 'react'
+import PageContainer from '@/components/Layout/PageContainer'
+import styles from './index.module.scss'
 
-interface Props {}
-
-const Home = () => {
-  return <div>Detail PAGE</div>
+function Detail() {
+  return (
+    <PageContainer>
+      <div className={styles.container}>
+        Detail
+      </div>
+    </PageContainer>
+  );
 }
 
-export default Home
+export default Detail;

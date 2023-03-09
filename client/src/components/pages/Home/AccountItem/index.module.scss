@@ -1,0 +1,12 @@
+.line {
+	display: flex;
+	align-items: center;
+	margin-bottom: 4px;
+	span{
+		&:first-child{
+			min-width: 160px;
+			font-weight: 500;
+			margin-right: 4px;
+		}
+	}
+}
