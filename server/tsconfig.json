@@ -1,10 +1,43 @@
 {
-  "extends": "@eggjs/tsconfig",
+  "compileOnSave": true,
   "compilerOptions": {
-    "declaration": false,
+    "target": "ES2020",
+    "module": "commonjs",
+    "strict": true,
     "paths": {
       "@/module/*": ["app/module/*"]
     },
-    "baseUrl": "."
+    "baseUrl": ".",
+    // Warn on expressions and declarations with an implied 'any' type.
+    // Many npm pack do not has own definition, so not enable
+    "noImplicitAny": false,
+    // Emit '__importStar' and '__importDefault' helpers for runtime babel ecosystem compatibility
+    // and enable '--allowSyntheticDefaultImports' for typesystem compatibility.
+    // Convenient for import assert from 'assert'
+    "esModuleInterop": true,
+    "charset": "utf8",
+    // Allow javascript files to be compiled.
+    // Egg compile to in place, will throw can not overwrite js file
+    "allowJs": false,
+    "pretty": true,
+    "noEmitOnError": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    // Ensure non-undefined class properties are initialized in the constructor.
+    // When use DI, properties will be implicitly init
+    "strictPropertyInitialization": false,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "inlineSourceMap": true,
+    "declaration": false,
+    "resolveJsonModule": true,
+    // Enables experimental support for ES7 decorators.
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "useUnknownInCatchVariables": true,
+    "incremental": false
   }
 }
