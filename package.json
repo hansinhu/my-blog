@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev:client": "yarn workspace client run dev",
-    "dev:server": "yarn workspace server run watch-server"
+    "dev:server": "yarn workspace server run watch-server",
+    "build": "yarn workspace client run build"
   },
   "repository": {
     "type": "git",
