@@ -10,6 +10,9 @@ WORKDIR /next/app
 # 使用yarn
 COPY package.json ./
 COPY yarn.lock ./
+# yarn workspace
+COPY ./client/package.json ./client/
+COPY ./server/package.json ./server/
 
 # 运行安装指令
 RUN yarn
