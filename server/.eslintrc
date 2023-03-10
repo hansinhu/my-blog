@@ -1,4 +1,5 @@
 {
   "root": true,
-  "extends": "eslint-config-egg/typescript"
+  "extends": "eslint-config-egg/typescript",
+  "ignorePatterns": ["dist/*.js"]
 }

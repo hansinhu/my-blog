@@ -6,7 +6,10 @@
   "scripts": {
     "dev:client": "yarn workspace client run dev",
     "dev:server": "yarn workspace server run watch-server",
-    "build": "yarn workspace client run build"
+    "build:client": "yarn workspace client run build",
+    "build:server": "yarn workspace server run build",
+    "build": "yarn build:client && yarn build:server",
+    "start": "yarn workspace server run start"
   },
   "repository": {
     "type": "git",
