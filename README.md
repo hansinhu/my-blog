@@ -1,6 +1,8 @@
 # Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+https://www.hansinhu.top
+
+This website is built using [Docusaurus 2](https://docusaurus.io/)
 
 ### Installation
 
@@ -39,3 +41,37 @@ $ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+
+### Deployment By Docker
+
+构建镜像
+
+```
+$ docker build . -t hansinhu/my-blog
+```
+
+运行镜像
+
+```
+$ docker run -p 3000:3000 -d hansinhu/my-blog
+```
+
+把你应用程序的输出打印出来：
+```
+$ docker ps
+$ docker logs <container id>
+```
+
+如果你需要进入容器中，请运行 exec 命令：
+
+```
+# Enter the container
+$ docker exec -it <container id> /bin/bash
+```
+
+关闭镜像
+
+```
+$ docker kill <container id>
+```
