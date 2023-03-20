@@ -5,14 +5,14 @@ FROM node:18
 # FROM registry.cn-hangzhou.aliyuncs.com/sblockchain/node
 
 # 定义项目要上传的容器位置，也就是我们这个项目要放到那个容器中
-WORKDIR /next/app
+WORKDIR /my-blog/app
 
 # 使用yarn
 COPY package.json ./
 COPY yarn.lock ./
 # yarn workspace
-COPY ./client/package.json ./client/
-COPY ./server/package.json ./server/
+# COPY ./client/package.json ./client/
+# COPY ./server/package.json ./server/
 
 # 运行安装指令
 RUN yarn
