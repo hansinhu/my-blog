@@ -1,36 +1,46 @@
 {
-  "name": "my-blog",
-  "version": "1.0.0",
-  "description": "从今天起做一个幸福的人",
-  "main": "index.js",
-  "scripts": {
-    "dev:client": "yarn workspace client run dev",
-    "dev:server": "yarn workspace server run watch-server",
-    "build:client": "yarn workspace client run build",
-    "build:server": "yarn workspace server run build",
-    "build": "yarn build:client && yarn build:server",
-    "start": "yarn workspace server run start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hansinhu/my-blog.git"
-  },
-  "author": "hansinhu",
-  "license": "ISC",
+  "name": "website",
+  "version": "0.0.0",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "client",
-      "server"
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "dev": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@docusaurus/core": "2.3.1",
+    "@docusaurus/preset-classic": "2.3.1",
+    "@mdx-js/react": "^1.6.22",
+    "clsx": "^1.2.1",
+    "prism-react-renderer": "^1.3.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "2.3.1",
+    "@tsconfig/docusaurus": "^1.0.5",
+    "typescript": "^4.7.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
     ],
-    "nohoist": [
-      "**/egg",
-      "**/egg-*",
-      "**/egg-*/**"
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   },
-  "bugs": {
-    "url": "https://github.com/hansinhu/my-blog/issues"
-  },
-  "homepage": "https://github.com/hansinhu/my-blog#readme"
+  "engines": {
+    "node": ">=16.14"
+  }
 }
