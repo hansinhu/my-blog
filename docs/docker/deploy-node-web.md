@@ -64,9 +64,9 @@ npm run start
 ![node-web](/img/doc/docker/node-web-page.png)
 
 
-## 创建一个Dockerfile
+## 创建一个Dockerfile 文件
 
-在应用程序根目录中创建一个名为Dockerfile的文件，并编写以下内容：
+在应用程序根目录中创建一个名为 Dockerfile 的文件，并编写以下内容：
 
 ```bash
 # 从Docker Hub上面拉取指定node版本的镜像
@@ -94,6 +94,15 @@ EXPOSE 3000
 
 # 运行应用程序 yarn start 或 npm start
 CMD ["yarn", "start"]
+```
+
+### 添加 .dockerignore 文件
+
+.dockerignore 文件的语法类似于 .gitignore 文件，可以使用通配符和目录名来指定要排除的文件和目录。这可以减小镜像大小，提高构建速度和安全性。
+
+```
+node_modules
+npm-debug.log
 ```
 
 ## 构建Docker镜像
