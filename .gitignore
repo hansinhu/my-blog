@@ -24,7 +24,10 @@ yarn-error.log*
 
 # log
 /logs
+*/logs
+*.log
 /run
+
 
 */**/dist
 

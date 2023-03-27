@@ -11,8 +11,8 @@ WORKDIR /my-blog/app
 COPY package.json ./
 COPY yarn.lock ./
 # yarn workspace
-# COPY ./client/package.json ./client/
-# COPY ./server/package.json ./server/
+COPY ./packages/client/package.json ./packages/client/
+COPY ./packages/server/package.json ./packages/server/
 
 # 运行安装指令
 RUN yarn
@@ -25,6 +25,7 @@ RUN yarn build
 
 # 容器内应用启动的端口
 EXPOSE 3000
+EXPOSE 3001
 
 # 启动应用
 CMD ["yarn", "start"]
