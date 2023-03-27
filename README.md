@@ -54,7 +54,7 @@ $ docker build . -t hansinhu/my-blog
 运行镜像
 
 ```
-$ docker run -p 3000:3000 -d hansinhu/my-blog
+$ docker run -p 3000:3000 -p 3001:3001 -d hansinhu/my-blog
 ```
 
 把你应用程序的输出打印出来：
