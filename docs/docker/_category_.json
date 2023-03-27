@@ -1,8 +1,0 @@
-{
-  "label": "Docker",
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "description": "5 分钟了解Docker，并能够部署你的 node web 应用"
-  }
-}

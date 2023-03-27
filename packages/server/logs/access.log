@@ -1,0 +1,12 @@
+[2023-03-27 16:20:35] [INFO] start question: 你几岁了
+[2023-03-27 16:20:39] [INFO] result : [{"message":{"role":"assistant","content":"我是一个AI语言模型，没有年龄，我可以一直存在下去。"},"finish_reason":"stop","index":0}]
+[2023-03-27 16:23:30] [INFO] start question: 你几岁了
+[2023-03-27 16:23:33] [INFO] result : [{"message":{"role":"assistant","content":"我是一个人工智能语言模型，没有实际的年龄。"},"finish_reason":"stop","index":0}]
+[2023-03-27 16:24:20] [INFO] start question: 你几岁了
+[2023-03-27 16:24:23] [INFO] result : [{"message":{"role":"assistant","content":"我是一个人工智能机器人，没有年龄的概念。"},"finish_reason":"stop","index":0}]
+[2023-03-27 16:27:05] [INFO] start question: 2121
+[2023-03-27 16:30:09] [INFO] start question: 2121
+[2023-03-27 16:30:47] [INFO] start question: 2121wqw
+[2023-03-27 16:31:35] [INFO] start question: 2121wqw
+[2023-03-27 16:32:35] [INFO] start question: wqwqw
+[2023-03-27 16:32:59] [INFO] start question: wqw

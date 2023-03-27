@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "ColfaxAI";
+  src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
+      format("woff2"),
+    url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ColfaxAI";
+  src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
+    url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+.gpt-main,
+.gpt-main input {
+  font-size: 16px;
+  line-height: 24px;
+  color: #353740;
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+}
+.gpt-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+}
+.gpt-main .icon {
+  width: 34px;
+}
+.gpt-main h3 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: bold;
+  color: #202123;
+  margin: 16px 0 40px;
+}
+.gpt-main form {
+  display: flex;
+  flex-direction: column;
+	width: 100%;
+	max-width: 500px;
+}
+.gpt-main input[type="text"] {
+  padding: 12px 16px;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 4px;
+  margin-bottom: 24px;
+  outline-color: var(--ifm-color-primary);
+}
+.gpt-main ::placeholder {
+  color: #8e8ea0;
+  opacity: 1;
+}
+.gpt-main input[type="submit"] {
+  padding: 12px 0;
+  color: #fff;
+  background-color: var(--ifm-color-primary);
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+.gpt-main .result {
+  font-weight: bold;
+  margin-top: 40px;
+	min-height: 200px;
+	max-width: 500px;
+	white-space: pre-line;
+}
