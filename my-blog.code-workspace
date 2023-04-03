@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "✨ minma-blog",
+			"path": "."
+		},
+		{
+			"name": "📦 website",
+			"path": "packages/client"
+		},
+		{
+			"name": "📦 server",
+			"path": "packages/server"
+		}
+	],
+	"settings": {}
+}

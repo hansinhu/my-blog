@@ -1,10 +1,28 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
+import { marked } from 'marked';
 import '../../../css/beta/chatgpt-3.css'
+import 'highlight.js/styles/github.css';
+
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  highlight: function(code, lang) {
+    const hljs = require('highlight.js');
+    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+    return hljs.highlight(code, { language }).value;
+  },
+  langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
+  pedantic: false,
+  gfm: true,
+  breaks: false,
+  sanitize: false,
+  smartypants: false,
+  xhtml: false
+});
 
 function Chatgpt3() {
   const [question, setQuestion] = useState("");
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function onSubmit(event) {
@@ -56,7 +74,7 @@ function Chatgpt3() {
           />
           <input type="submit" value={loading ? '生成中...' : '发送'} />
         </form>
-        <div className={'result'} dangerouslySetInnerHTML={{ __html: `${loading ? '生成中...' : result}` }} />
+        <div className={'result'} dangerouslySetInnerHTML={{ __html: `${loading ? '生成中...' : marked.parse(result || '')}` }} />
       </main>
     </div>
 
