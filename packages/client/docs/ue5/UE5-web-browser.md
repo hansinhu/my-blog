@@ -12,3 +12,5 @@ https://unrealcommunity.wiki/web-browser-widget-13f406
 ## 使用控件蓝图
 
 创建蓝图类：蓝图 => 蓝图类 => Actor => 添加 => 控件组件（wiget）=> 细节 => 用户界面 控件类选择 WB_web_controller
+
+展示鼠标操作：事件定义 => 获取玩家控制器 & 时间开始运行 => set show mouse cursor
