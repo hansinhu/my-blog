@@ -1,0 +1,35 @@
+.beta {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 24px 0;
+}
+
+.beta-row {
+	display: flex;
+	align-items: start;
+	flex-wrap: wrap;
+}
+
+.beta-col {
+	width: 33.33%;
+	padding: 0 12px;
+	margin-bottom: 12px;
+}
+
+.beta-card {
+	border: 1px solid #eee;
+	border-radius: 4px;
+	padding: 12px;
+}
+
+@media only screen and (max-width: 750px) {
+	.beta-col {
+		width: 50%;
+	}
+	.beta-col:nth-child()
+}
+@media only screen and (max-width: 500px) {
+	.beta-col {
+		width: 100%;
+	}
+}

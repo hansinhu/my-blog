@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import './index.css'
 
 const betaList = [{
   name: 'ChatGPT-3',
@@ -13,14 +14,20 @@ function Beta() {
       title={`Hello from `}
       description="minma.hu's blog">
       <main>
-      <div>
+      <div className='beta'>
+        <div className='beta-row'>
         {
           betaList.map(item => (
-            <Link to={item.url}>
-              <div>ChatGPT</div>
-            </Link>
+            <div key={item.name} className='beta-col'>
+              <Link to={item.url}>
+              <div className='beta-card'>
+                <div>ChatGPT</div>
+              </div>
+              </Link>
+            </div>
           ))
         }
+        </div>
       </div>
       </main>
     </Layout>

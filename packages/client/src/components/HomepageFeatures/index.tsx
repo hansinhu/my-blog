@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import clsx from 'clsx';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 type FeatureItem = {
   title: string;
@@ -42,16 +42,49 @@ const FeatureList: FeatureItem[] = [
 ];
 
 function Feature({title, Svg, description}: FeatureItem) {
+  const container = useRef(null)
+  const el = useRef(null)
+
+  useEffect(() => {
+    const multiple = 20
+
+    function transformElement(e) {
+      window.requestAnimationFrame(function(){
+        const x = e.clientX
+        const y = e.clientY
+        let box = el.current.getBoundingClientRect();
+        let calcX = -(y - box.y - (box.height / 2)) / multiple;
+        let calcY = (x - box.x - (box.width / 2)) / multiple;
+        el.current.style.transform  = `rotateX(${calcX}deg) rotateY(${calcY}deg) `;
+      });
+    }  
+
+    function leaveEl () {
+      el.current.style.transform  = `rotateX(0deg) rotateY(0deg) `;
+    }
+
+    container.current.addEventListener('mousemove', transformElement);
+    container.current.addEventListener('mouseleave', leaveEl);
+
+    return () => {
+      container.current?.removeEventListener('mousemove', transformElement);
+      container.current?.removeEventListener('mouseleave', leaveEl);
+    }
+  }, [])
+
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+      <div className={clsx('col col--4')}>
+        <div className={styles.cursor} ref={container}>
+        <div className={clsx("text--center", styles.cursorContent)} ref={el}>
+          <Svg className={styles.featureSvg} role="img" />
+        </div>
+        </div>
+        <div className="text--center padding-horiz--md">
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
       </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    </div>
+    
   );
 }
 

@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import StartScreen from '@site/src/components/StartScreen';
 
 import styles from './index.module.css';
 
@@ -32,10 +33,11 @@ export default function Home(): JSX.Element {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="minma.hu's blog">
-      <HomepageHeader />
+      {/* <HomepageHeader /> */}
       <main>
         <HomepageFeatures />
       </main>
+      <StartScreen />
     </Layout>
   );
 }

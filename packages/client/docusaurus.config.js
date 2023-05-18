@@ -65,10 +65,10 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'MinMa.Hu（棉麻）',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
-        },
+        // logo: {
+        //   alt: 'My Site Logo',
+        //   src: 'img/logo.svg',
+        // },
         items: [
           {
             type: 'doc',
@@ -147,6 +147,7 @@ const config = {
         },
       },
     ],
+    'docusaurus-plugin-sass',
   ]
 };
 
