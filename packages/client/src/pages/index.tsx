@@ -32,7 +32,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="minma.hu's blog">
+      description="hansinhu's blog">
       {/* <HomepageHeader /> */}
       <main>
         <HomepageFeatures />

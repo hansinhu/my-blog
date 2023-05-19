@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'MinMa.Hu Blog',
-  tagline: 'MinMa.Hu Blog22',
+  title: 'Hansinhu Blog',
+  tagline: 'Hansinhu Blog22',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -18,8 +18,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'MinMa.Hu', // Usually your GitHub org/user name.
-  projectName: 'minma-blog', // Usually your repo name.
+  organizationName: 'Hansinhu', // Usually your GitHub org/user name.
+  projectName: 'hansinhu-blog', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -42,14 +42,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/minma-hu/my-blog/tree/main/docs',
+            'https://github.com/hansinhu/my-blog/tree/main/docs',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/minma-hu/my-blog/tree/main/blog',
+            'https://github.com/hansinhu/my-blog/tree/main/blog',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -64,7 +64,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'MinMa.Hu（棉麻）',
+        title: 'Hansinhu',
         // logo: {
         //   alt: 'My Site Logo',
         //   src: 'img/logo.svg',
@@ -79,7 +79,7 @@ const config = {
           {to: '/blog', label: '博客', position: 'left'},
           {to: '/beta', label: '实验室', position: 'left'},
           {
-            href: 'https://github.com/minma-hu',
+            href: 'https://github.com/hansinhu',
             label: 'GitHub',
             position: 'right',
           },
@@ -119,12 +119,12 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/minma-hu',
+                href: 'https://github.com/hansinhu',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} MinMa.hu`,
+        copyright: `Copyright © ${new Date().getFullYear()} Hansinhu`,
       },
       prism: {
         theme: lightCodeTheme,

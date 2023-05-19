@@ -5,13 +5,22 @@ const parse = require('co-body');
 // const logger = require('koa-logger')
 const log4js = require('./src/log4js/index')
 const fs = require("fs");
+const http = require("http")
 const generate = require('./src/chatgpt/generate')
+const IO = require('koa-socket')
+const url = require('url')
+const socketCb = require('./src/socket/index.js')
 
 const app = new Koa();
 const router = new Router();
+const server = http.createServer(app.callback());
+const io = require('socket.io')(server, {
+  pingTimeout: 30000
+  // ...other props
+});
 
-console.info("openApiKey: ")
-console.info(process.env.OPENAI_API_KEY)
+// console.info("openApiKey: ")
+// console.info(process.env.OPENAI_API_KEY)
 
 router
 	.get('/health', (ctx, next) => {
@@ -52,7 +61,16 @@ app
   .use(router.allowedMethods())
 	.use(bodyParser())
 
+io.on('connection', socket => {
+	console.log('io connection 666 !!!')
+	const query = url.parse(socket.request.url, true).query
 
-app.listen(3001, () => {
+	console.log('socker query:', query)
+
+	socketCb(io, socket)
+})
+
+
+server.listen(3001, () => {
 	console.log(`API proxy start: http://localhost:3001`)
 });

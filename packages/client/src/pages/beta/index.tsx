@@ -6,13 +6,16 @@ import './index.css'
 const betaList = [{
   name: 'ChatGPT-3',
   url: '/beta/chatgpt-3'
+},{
+  name: 'WebRTC 视频聊天室',
+  url: '/beta/webrtc-chat-room'
 }]
 
 function Beta() {
   return (
     <Layout
       title={`Hello from `}
-      description="minma.hu's blog">
+      description="hansinhu's blog">
       <main>
       <div className='beta'>
         <div className='beta-row'>
@@ -21,7 +24,7 @@ function Beta() {
             <div key={item.name} className='beta-col'>
               <Link to={item.url}>
               <div className='beta-card'>
-                <div>ChatGPT</div>
+                <div>{item.name}</div>
               </div>
               </Link>
             </div>

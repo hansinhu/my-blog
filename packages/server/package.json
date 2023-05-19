@@ -16,7 +16,9 @@
     "koa-bodyparser": "^4.4.0",
     "koa-log4": "^2.3.2",
     "koa-logger": "^3.2.1",
-    "openai": "^3.2.1"
+    "koa-socket": "^4.4.0",
+    "openai": "^3.2.1",
+    "socket.io": "^4.6.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
