@@ -32,65 +32,55 @@ function socketCb (io, socket) {
   /** client->server 信令集*/
   //【createAndJoinRoom】  创建并加入Room中 [room]
   socket.on('createAndJoinRoom', function (message) {
-		console.log('---------------')
     var room = message.room;
     console.log('Received createAndJoinRoom：' + room);
+
+    console.log('io.sockets.adapter.rooms', io.sockets.adapter.rooms)
+
     //判断room是否存在
-    var clientsInRoom = io.sockets.adapter.rooms[room];
-    var numClients = clientsInRoom ? Object.keys(clientsInRoom.sockets).length : 0;
+    var clientsInRoom = io.sockets.adapter.rooms.get(room)
+
+    console.log('clientsInRoom', clientsInRoom)
+    
+    var numClients = clientsInRoom ? clientsInRoom.size : 0
     console.log('Room ' + room + ' now has ' + numClients + ' client(s)');
-    if (clientsInRoom) {
-      console.log(Object.keys(clientsInRoom.sockets));
-    }
+
     if (numClients === 0) {
       /** room 不存在 不存在则创建（socket.join）*/
-      //加入并创建房间
+      // 创建并加入房间
       socket.join(room);
+      console.log('创建并加入房间:')
       console.log('Client ID ' + socket.id + ' created room ' + room);
 
-      //发送【created】消息至客户端 [id,room,peers]
-      var data = {};
-      //socket id
-      data.id = socket.id;
-      //room id
-      data.room = room;
-      //其他连接 为空
-      data.peers = [];
-      //发送
+      console.log('***** io.sockets.adapter.rooms *****', io.sockets.adapter.rooms)
+
+      // 发送【created】消息至客户端 [id,room,peers]
+      var data = {
+        id: socket.id,
+        room,
+        peers: [], // 其他连接 为空
+      };
+      // 发送
       socket.emit('created', data);
     } else {
       /** room 存在 */
-      //发送【joined】消息至该room其他客户端 [id,room]
+      // 发送【joined】消息至该room其他客户端 [id,room]
       var data = {};
-      //socket id
       data.id = socket.id;
-      //room id
       data.room = room;
-      //发送房间内其他客户端
+      // 发送房间内其他客户端
       io.sockets.in(room).emit('joined', data);
 
-
-      //发送【created】消息至客户端 [id,room,peers]
-      var data = {};
-      //socket id
-      data.id = socket.id;
-      //room id
-      data.room = room;
-      //其他连接
-      var peers = new Array();
-      var otherSocketIds = Object.keys(clientsInRoom.sockets);
-      console.log('Socket length ' + otherSocketIds.length);
-      for (var i = 0; i < otherSocketIds.length; i++) {
-        var peer = {};
-        peer.id = otherSocketIds[i];
-        peers.push(peer);
-      }
-      data.peers = peers;
-      //发送
+      // 发送【created】消息至客户端 [id,room,peers]
+      // 其他连接
+      var otherSocketIds = new Array(...clientsInRoom)
+      data.peers = otherSocketIds.map(id => ({ id }))
+      // 发送
       socket.emit('created', data);
 
       //加入房间中
       socket.join(room);
+      console.log('加入房间:')
       console.log('Client ID ' + socket.id + ' joined room ' + room);
     }
 
@@ -100,8 +90,8 @@ function socketCb (io, socket) {
   socket.on('offer', function (message) {
     var room = Object.keys(socket.rooms)[1];
     console.log('Received offer: ' + message.from + ' room:' + room + ' message: ' + JSON.stringify(message) );
-    //转发【offer】消息至其他客户端
-    //根据id找到对应连接
+    // 转发【offer】消息至其他客户端
+    // 根据id找到对应连接
     var otherClient = io.sockets.connected[message.to];
     if (!otherClient) {
       return;

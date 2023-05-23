@@ -20,6 +20,7 @@ const useRoomController = () => {
 	const [roomId, setRoomId] = useState(null)
 	const [localStream, setLocalStream] = useState(null)
 	const [rtcConnects, setRTCConnects] = useState({})
+	const [joined, setJoined] = useState(false)
 
 	useEffect(() => {
 
@@ -47,28 +48,20 @@ const useRoomController = () => {
 		//created [id,room,peers]
 		socket.current.on('created', async function (data) {
 			console.log('created: ' + JSON.stringify(data));
-			// $('createAndJoinRoom').disabled = true;
-			//设置socket id
 			setSocketId(data.id)
-			//设置room id
 			setRoomId(data.room)
-			//根据回应peers 循环创建WebRtcPeerConnection & 发送offer消息 [from,to,room,sdp]
+			// 根据回应peers 循环创建WebRtcPeerConnection & 发送offer消息 [from,to,room,sdp]
 			for (let i = 0; i < data.peers.length; i++) {
 					var otherSocketId = data.peers[i].id;
-					//创建WebRtcPeerConnection
+					// 创建WebRtcPeerConnection
 					var pc = getOrCreateRtcConnect(otherSocketId);
-					//设置offer
-					const offer = await pc.createOffer(offerOptions);//pc.createOffer(offerOptions).then(offer => onCreateOfferSuccess(pc, otherSocketId, offer), error => onCreateOfferError(pc, otherSocketId, error));
+					// 设置offer
+					const offer = await pc.createOffer(offerOptions);
 					onCreateOfferSuccess(pc, otherSocketId, offer);
-					//闭包解决方式
-					// (function(pc, otherSocketId){
-					//     pc.createOffer(offerOptions).then(offer => onCreateOfferSuccess(pc, otherSocketId, offer), error => onCreateOfferError(pc, otherSocketId, error));
-					// })(pc, otherSocketId);
-
 			}
 		})
 
-		//joined [id,room]
+		// joined [id,room]
 		socket.current.on('joined', function (data) {
 			console.log('joined: ' + JSON.stringify(data));
 			//构建Peer
@@ -142,7 +135,7 @@ const useRoomController = () => {
 			console.log('createAndJoin: ', roomName)
 			socket.current.emit('createAndJoinRoom', { room: roomName })
 		} else {
-				console.log('请输入聊天室名');
+			console.log('请输入聊天室名');
 		}
 	}
 
@@ -156,11 +149,11 @@ const useRoomController = () => {
 		socket.current.emit('exit', data);
 		setSocketId(null)
 		setRoomId(null)
-		cb?.()
+		// cb && cb?.()
 	}
 
 	/** WebRtc相关 */
-	//构建webRtc连接并返回
+	// 构建webRtc连接并返回
 	function getOrCreateRtcConnect(socketId) {
 		var pc = rtcConnects[socketId];
 		if (typeof (pc) == 'undefined') {
@@ -170,12 +163,6 @@ const useRoomController = () => {
 
 				//设置获取icecandidate信息回调
 				pc.onicecandidate = e => onIceCandidate(pc, socketId, e);
-				// //设置获取对端stream数据回调--stream方式
-				// pc.onaddstream = e => onAddStream(pc, socketId, e);
-				// if (localStream != null) {
-				//     //peer设置本地流
-				//     pc.addStream(localStream);
-				// }
 
 				//设置获取对端stream数据回调--track方式
 				pc.ontrack = e => onTrack(pc, socketId, e);
@@ -294,6 +281,8 @@ const useRoomController = () => {
 	return {
 		createAndJoin,
 		exit,
+		joined,
+		setLocalStream,
 	}
 }
 

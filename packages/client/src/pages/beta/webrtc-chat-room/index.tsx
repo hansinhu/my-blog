@@ -14,10 +14,10 @@ const Index = () => {
 			<div className='webrct-main'>
 				<input type="text" id="roomName" placeholder="请填写Room名称" />
 				<br/>
-				<button onClick={() => roomController.createAndJoin('456789')}>createAndJoinRoom</button>
+				<button disabled={roomController.joined} onClick={() => roomController.createAndJoin('456789')}>createAndJoinRoom</button>
 				<br/>
-				<button id="exit">exit</button>
-				{/* <LocalVideo /> */}
+				<button onClick={roomController.exit} id="exit">exit</button>
+				<LocalVideo setLocalStream={roomController.setLocalStream} />
 			</div>
 		</Layout>
 	)

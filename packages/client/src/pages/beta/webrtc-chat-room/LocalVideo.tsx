@@ -2,8 +2,7 @@ import React, { useRef, useEffect } from 'react'
 
 interface Props {}
 
-const LocalVideo = () => {
-	const localStream = useRef(null)
+const LocalVideo = ({ setLocalStream }) => {
 	const videoEl = useRef(null)
 
 	useEffect(() => {
@@ -26,7 +25,7 @@ const LocalVideo = () => {
 	function gotStream(stream) {
 		console.log('收到本地视频流');
 		videoEl.current.srcObject = stream;
-		localStream.current = stream;
+		setLocalStream(stream)
 	}
 
   return (
