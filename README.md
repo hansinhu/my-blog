@@ -75,3 +75,6 @@ $ docker exec -it <container id> /bin/bash
 ```
 $ docker kill <container id>
 ```
+
+修改nginx配置
+.doker/nginx.conf => /etc/nginx/conf.d/*.conf
