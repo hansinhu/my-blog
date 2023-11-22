@@ -68,6 +68,9 @@ $ docker logs <container id>
 ```
 # Enter the container
 $ docker exec -it <container id> /bin/bash
+
+# Exit the container
+$ exit
 ```
 
 关闭镜像
