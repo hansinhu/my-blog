@@ -81,3 +81,17 @@ $ docker kill <container id>
 
 修改nginx配置
 .doker/nginx.conf => /etc/nginx/conf.d/*.conf
+
+
+# 其他
+```
+# docker 添加环境变量
+$ docker run -e MY_VARIABLE=value -p 3000:3000 my-node-app
+
+# 或
+
+$ docker run -v /path/to/local/.env:/path/in/container/.env -e MY_VARIABLE=value -p 3000:3000 my-node-app
+在这个例子中，/path/to/local/.env 是本地主机上的 .env 文件路径，/path/in/container/.env 是容器内部的路径。这样，你可以将本地的 .env 文件挂载到容器内，实现在启动容器前修改配置文件的目的。
+```
+
+
