@@ -7,6 +7,9 @@ FROM node:18
 # 定义项目要上传的容器位置，也就是我们这个项目要放到那个容器中
 WORKDIR /my-blog/app
 
+# nginx 配置
+ADD .docker/conf/blog_nginx.conf /etc/nginx/conf.d/default.conf
+
 # 使用yarn
 COPY package.json ./
 COPY yarn.lock ./
