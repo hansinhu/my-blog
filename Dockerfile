@@ -26,6 +26,8 @@ COPY . .
 # 打包
 RUN yarn build
 
+# RUN chmod -R 755 /www
+
 # 容器内应用启动的端口
 EXPOSE 3000
 EXPOSE 3001
