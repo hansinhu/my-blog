@@ -32,5 +32,7 @@ RUN yarn build
 EXPOSE 3000
 EXPOSE 3001
 
+# ngix 启动
+# CMD [ "sh", "/entrypoint.sh" ]
 # 启动应用
 CMD ["yarn", "start"]
